@@ -1,0 +1,16 @@
+#Helping a robot to ride an elevator:
+
+- At the main floor of the building, going to the 6th floor:
+	- Walk up to face the elevator;
+	- Press the 1st button (from top to bottom);
+- Wait until the door opens, then walk in it until reach a wall:
+	- Turn to the left perpendicularly to the wall;
+	- Walk up to reach a second wall;
+	- Turn to the left perpendicularly to the wall (again);
+	- Walk up to reach the 3rd wall, where the control pannel is;
+- On the control pannel, count the buttons from bottom to top (considering that the pannel has just one row and the ground floor is floor 1) from 0-5:
+	- Press button 5;
+	- Wait up to hear the bell (the robot is gonna be there alone);
+	- After the door opens, get out of the elevator! 
+
+
