@@ -17,6 +17,25 @@ def encrypt(password)
 	p password
 end
 
-encrypt("hey there") 
+=begin
+The decrypt method needs to accept a string;
+We need a loop to go through each character of the string;
+We need to find the index of each character of the alphabet:
+ if character is not a space character,
+ 	we change the character to the alphabet-string-character at index minus one.
+=end
 
+
+def decrypt(password)
+	counter = 0
+	alphabet = "abcdefghijklmnopqrstuvwxyz"
+	while counter < password.length
+		if password[counter] != " "
+			alphabet_index = alphabet.index(password[counter])
+			password[counter] = alphabet[alphabet_index - 1]
+		end
+		counter += 1 
+	end
+	p password
+end
 
