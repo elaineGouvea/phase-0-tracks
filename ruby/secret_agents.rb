@@ -9,7 +9,7 @@ def encrypt(password)
 	counter = 0
 	while counter < password.length
 		if password[counter] != " "
-		password[counter] = password[counter].next!
+		password[counter] = password[counter].next[0]
 		end
 	counter +=1
 	end
@@ -39,3 +39,7 @@ def decrypt(password)
 	p password
 end
 
+encrypt("abc") 
+encrypt("zed") 
+decrypt("bcd") 
+decrypt("afe") 
