@@ -13,8 +13,7 @@ def encrypt(password)
 		end
 	counter +=1
 	end
-
-	p password
+	password
 end
 
 =begin
@@ -36,18 +35,34 @@ def decrypt(password)
 		end
 		counter += 1 
 	end
-	p password
+	password
 end
+ 
+#encrypt("abc") 
+#encrypt("zed") 
+#decrypt("bcd") 
+#decrypt("afe") 
 
-encrypt("abc") 
-encrypt("zed") 
-decrypt("bcd") 
-decrypt("afe") 
-
-p decrypt(encrypt("swordfish"))
+#p decrypt(encrypt("swordfish"))
 
 =begin 
 This nested method works because first it executes the inner method (encrypt).
 Encrypt returns a string. 
 Decrypt takes the string that encrypt returns.
 =end
+
+puts "Hello, would you like to encrypt or decrypt?"
+choice = gets.chomp
+
+puts "Please, insert the password"
+pwd = gets.chomp
+
+if choice == "encrypt"
+	p encrypt(pwd)
+else
+	p decrypt(pwd)
+end
+
+
+
+
