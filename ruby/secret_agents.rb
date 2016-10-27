@@ -43,3 +43,11 @@ encrypt("abc")
 encrypt("zed") 
 decrypt("bcd") 
 decrypt("afe") 
+
+p decrypt(encrypt("swordfish"))
+
+=begin 
+This nested method works because first it executes the inner method (encrypt).
+Encrypt returns a string. 
+Decrypt takes the string that encrypt returns.
+=end
