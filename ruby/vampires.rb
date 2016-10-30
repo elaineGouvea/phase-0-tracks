@@ -77,6 +77,8 @@ def survey_form
 		end
 	end	
 
+	puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
+
 end
 
 puts "How many employees will be processed?"
