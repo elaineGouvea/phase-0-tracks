@@ -29,39 +29,54 @@ def survey_form
 	puts "Would you like to enroll in the company’s health insurance? (y/n)"
 	wants_health_insurance = gets.chomp
 
-
-	if informed_age == age
-		is_age_correct = true
-	else 
-		is_age_correct = false
+	puts "Name any allergies, one at a time. You should type “done” when finished."
+	allergy = ""
+	is_vampire_detected = false
+	until allergy == "done"
+		allergy = gets.chomp
+			if allergy == "sunshine"
+				puts "Probably a vampire." 
+				is_vampire_detected = true
+			end
 	end
 
-	if wants_garlic == "y" 
-		garlic = true
-	else 
-		garlic = false
-	end
+	if !is_vampire_detected
 
-	if wants_health_insurance == "y" 
-		health_insurance = true
-	else 
-		health_insurance = false
-	end
+		if informed_age == age
+			is_age_correct = true
+		else 
+			is_age_correct = false
+		end
 
-	#Vampire Detecting logic:
-	#result = " "	
+		if wants_garlic == "y" 
+			garlic = true
+		else 
+			garlic = false
+		end
 
-	result = if is_age_correct && (garlic || health_insurance)
-		puts "Probably not a vampire."
-	elsif !is_age_correct && !(garlic || health_insurance)
-		puts "Probably a vampire."
-	elsif !is_age_correct && !garlic && !health_insurance
-		puts "Almost certainly a vampire."
-	elsif employee_name == "Drake Cula" || "Tu Fang"
-	puts "Definitely a vampire."
-	else 
-		puts "Result inconclusive."
-	end
+		if wants_health_insurance == "y" 
+			health_insurance = true
+		else 
+			health_insurance = false
+		end
+
+		#Vampire Detecting logic:
+
+		garlic_or_insurance = garlic || health_insurance
+
+		if is_age_correct && garlic_or_insurance
+			puts "Probably not a vampire."
+		elsif !is_age_correct && !garlic_or_insurance
+			puts "Probably a vampire."
+		elsif !is_age_correct && !garlic && !health_insurance
+			puts "Almost certainly a vampire."
+		elsif employee_name == "Drake Cula" || "Tu Fang"
+		puts "Definitely a vampire."
+		else 
+			puts "Result inconclusive."
+		end
+	end	
+
 end
 
 puts "How many employees will be processed?"
