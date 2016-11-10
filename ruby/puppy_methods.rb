@@ -29,18 +29,41 @@ class Puppy
 	end
 end
 
-fido = Puppy.new
+# fido = Puppy.new
 
-fido.fetch("ball")
+# fido.fetch("ball")
 
-fido.speak(3)
+# fido.speak(3)
 
-fido.roll_over
+# fido.roll_over
 
-fido.dog_years(6)
+# fido.dog_years(6)
 
-fido.hand_shake
+# fido.hand_shake
 
+class Kitten
+	def initialize
+		puts "Initializing new Kitten instance..."
+	end
 
+	def cuddle
+		puts "*cuddles legs*"
+	end
+
+	def cat_years(human_years)
+		puts human_years * 7
+	end
+end
+
+cat_house = []
+
+i = 0
+
+until i == 50 
+	cat_house << Kitten.new
+	i += 1
+end
+
+cat_house.each {|kitten| kitten.cuddle}
 
 
