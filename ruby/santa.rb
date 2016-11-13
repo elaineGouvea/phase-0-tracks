@@ -58,5 +58,6 @@ example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer n
   puts new_santa.speak
 end
 
+
 # santa.speak
 # santa.eat_milk_and_cookies("oreo")
