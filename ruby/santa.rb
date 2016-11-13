@@ -1,4 +1,7 @@
 class	Santa
+	attr_reader :age, :ethnicity
+	attr_accessor :gender
+
 	def initialize(gender,ethnicity)
 		puts "Initializing Santa instance ..."
 		@gender = gender
@@ -24,35 +27,7 @@ class	Santa
 		bad_reindeer = @reindeer_ranking.slice!(reindeer_position)
 		return @reindeer_ranking << bad_reindeer
 	end
-	
-	# setter method
-	def gender=(new_gender)
-		@gender = new_gender
-	end
-
-	# getter methods
-	def age
-		@age		
-	end
-
-	def ethnicity
-		@ethnicity
-	end
-
-	def gender
-		@gender
-	end
-
 end
-
-# santas = []
-# example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
-# example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
-# example_genders.length.times do |i|
-#   santas << Santa.new(example_genders[i], example_ethnicities[i])
-# end
-
-# puts santas
 
 # Driver code
 santa = Santa.new("female","Latina")
@@ -74,6 +49,14 @@ puts santa.age == 1
 puts "Should allow to return ethnicity outside the method"
 puts santa.ethnicity == "Latina"
 
+# santas = []
+# example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+# example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+# example_genders.length.times do |i|
+#   santas << Santa.new(example_genders[i], example_ethnicities[i])
+# end
+
+# puts santas
 
 # santa.speak
 # santa.eat_milk_and_cookies("oreo")
