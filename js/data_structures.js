@@ -35,3 +35,21 @@ oldCar.honk();
 console.log("This " + smallCar.color + " " + smallCar.brand + "car is from " + smallCar.year);
 smallCar.accelerate();
 smallCar.honk();
+
+// Release 3
+
+console.log("__________");
+
+for (var property in oldCar) {
+   if (oldCar.hasOwnProperty(property)) {
+       console.log("The old car's " + property + " is " + oldCar[property]);        
+   }    
+}
+
+console.log("__________");
+
+for (var property in smallCar) {
+   if (smallCar.hasOwnProperty(property)) {
+       console.log("The small car's " + property + " is " + smallCar[property]);
+   }
+}
