@@ -13,3 +13,7 @@ function stringReverse(str){
 	return charList.join('');
 }
 
+// Driver code
+newString = stringReverse('hello');
+console.log(newString);
+
