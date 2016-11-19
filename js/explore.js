@@ -17,3 +17,7 @@ function stringReverse(str){
 newString = stringReverse('hello');
 console.log(newString);
 
+// Print the variable if some condition is true:
+if (typeof newString === 'string') {
+	console.log(newString + " is the original string reversed!");
+}
