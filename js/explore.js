@@ -5,3 +5,11 @@
 // - Put the reversed string into the new array
 // - Join the array into a string again and returns its value
 
+function stringReverse(str){
+	var charList = [];
+	// console.log( str.split('') );
+	for (var char = str.length -1, invertChar = 0; char >= 0 ; char--, invertChar++)
+		charList[invertChar] = str[char];
+	return charList.join('');
+}
+
