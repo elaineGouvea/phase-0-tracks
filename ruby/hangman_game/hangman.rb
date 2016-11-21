@@ -28,37 +28,53 @@
 
 # Business Logic
 class HangmanGame
+	attr_reader :is_over, :win, :guess_is_valid
+	attr_accessor :secret_word_chars, :guess_count, :chars
+
 	def initialize
 		@secret_word_chars = []
 		@guess_count = 0
     @is_over = false
     @win = false
+    @chars = ""
+    @guesses = []
 	end
 
 	def check_guess
-		
+		# guess_is_valid = false
+		# if @is_over == false && !guesses.include? @char
+		# 	@guesses << @char
+		# 	@guess_is_valid = true
+		# end
+		# puts @guesses
 	end
 
+	def is_over
+		
+	end
 end
 
 # Interface
+game = HangmanGame.new
+
 puts "Who's player 1?"
-player_1 = "gets.chomp"
+player_1 = gets.chomp
 puts "Who's player 2?"
-player_2 = "gets.chomp"
+player_2 = gets.chomp
 
 puts "#{player_1}, what's the secret word?"
-secret_word = "chair"
-secret_word_chars = secret_word.split("")
+secret_word = gets.chomp
+game.secret_word_chars = secret_word.split("")
 
-secret_word_chars.length.times do 
-	print "_" + " " 
-end
-
-until HangmanGame.is_over
+until game.is_over
 	puts "#{player_2}, guess a letter"
-	char = gets.chomp
+	chars = gets.chomp
+	puts chars
+	# game.char = char
+	# game.check_guess
+	game.guess_count += 1
 end
+
 
 
 # Driver Code
