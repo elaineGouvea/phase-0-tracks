@@ -95,3 +95,16 @@ end
 
 #=======================================================================
 # Reflection Section
+# - What are the differences between the two different hash syntaxes shown in the state_data file?
+#     - “key” => value needs the hash rocket (=>) symbol to work;
+#     - key: value is easier and dryer, but it may not work with some older versions than Ruby 1.9. Also, it is not valid if your key is not a symbol. In case you need a key that is not a symbol, you should go with the first syntax option.
+# - What does require_relative do? How is it different from require?
+#     - It’s best practice to write programs in different files, break the code by logical grouping. Require-relative is a way to include other files in Ruby. The difference between require and require_relative is that require method allows us to include files from anywhere while require_relative just gets files that are located relatively to our file - at the same directory.
+# - What are some ways to iterate through a hash?
+#     - each, map, select..
+# - When refactoring virus_effects, what stood out to you about the variables, if anything?
+#     - We can create variables to avoid code repetition.
+# - What concept did you most solidify in this challenge?
+#     - How to iterate through a hash;
+#     - Understand how nested data structures work (how to access them, to iterate through them, etc.);
+#     - Refactor to DRY my code.
