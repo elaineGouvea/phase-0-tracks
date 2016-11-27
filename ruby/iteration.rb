@@ -1,67 +1,66 @@
-fruit = ["bananas","apples","oranges","grapes","pears"]
-hash_example = {
-	"one" => 1,
-	"two" => 2,
-	"three" => 3,
-	"four" => 4
-}
-
-#RELEASE 1
-fruit.each do |item|
-	puts item
+def test_method
+	puts "Hello, there!"
+	yield("Elaine", "Vilde")
 end
 
-hash_example.each do |word, number|
-	puts "#{word}, #{number}"
+test_method {|name1, name2| puts "Hi, #{name1} and #{name2}"}
+
+Hollywood_movie_stars = ["Tom Cruise", "Brad Pitt", "Angelia Jolie", "Mel Gibson"]
+
+Stars_and_movies = {"Tom Cruise" => "Jerry MacGuire", "Brad Pitt" => "Smith", "Angelina Jolie" => "Smith", "Mel Gibson" => "Hamlet"}
+
+# Using .each
+puts Hollywood_movie_stars
+
+Hollywood_movie_stars.each do |star|
+	puts "#{star}"
 end
 
-fruit.map! do |item|
-	item.upcase
+puts Hollywood_movie_stars
+
+puts Stars_and_movies
+Stars_and_movies.each do |star, movie|
+	puts "#{star} was in #{movie}"
 end
+puts Stars_and_movies
 
-fruit.each do |item|
-	puts item
+# Using .map!
+
+Hollywood_movie_stars.map! do |star|
+	star.downcase
 end
+puts Hollywood_movie_stars
 
-index = 0
+# Release 2
+# Working with Arrays
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-
-
-# RELEASE 2
-numbers = [60,1,22,3,4,53,66,7,18,9,10]
-
-#2.
-select_numbers = numbers.select do |number|
-	number > 10
-end
-p select_numbers
-
-select_hash_example = hash_example.select do |word, number|
-	number > 2
-end
-p select_hash_example
-
-#3.
-reject_numbers = numbers.reject do |number|
-	number > 10
-end
-p reject_numbers
-
-reject_hash_example = hash_example.reject do |word, number|
-	number > 2
-end
-p reject_hash_example
-
-#4.
-take_numbers = numbers.take_while {|number| number != 66}
-p take_numbers
-
-take_numbers_hash_example = hash_example.take_while {|word, number| number !=3}
-p take_numbers_hash_example
-
-#1.
-numbers.delete_if {|number| number > 5 }
+numbers.delete_if {|number| number < 5}
 p numbers
 
-hash_example.delete_if {|word, number| number < 3 }
-p hash_example
+numbers_2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+numbers_2.delete_if {|number| number > 5}
+p numbers_2
+
+numbers_3 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+numbers_3.reject! {|number| number == 4}
+p numbers_3
+
+numbers_4 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+numbers_4.select! {|number| number <=3 }
+
+p numbers_4
+
+# Working with Hashes
+numbers5 = { 1 => "one", 2 => "two", 3 => "three", 4 => "four", 5 => "five"}
+p numbers5
+# numbers5.delete_if {|number, name| number < 5}
+# p numbers5
+
+# numbers5.delete_if {|number, name| number < 4}
+# p numbers5
+
+numbers5.reject! {|number, name| number == 4}
+p numbers5
+
