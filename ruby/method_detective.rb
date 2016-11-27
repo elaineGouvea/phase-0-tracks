@@ -44,11 +44,12 @@
 "z".byte[0]
 "z".each_byte.to_a[0]
 => 122 
+
 # (What is the significance of the number 122 in relation to the character z?)
 # It's the keycode of z character. It's related to the ASCII (American Standard
 # Code for Information Interchange) table, the default format for text files in 
 # Ruby. 
- 
 
 "How many times does the letter 'a' appear in this string?".count ("a")
 => 4
+
