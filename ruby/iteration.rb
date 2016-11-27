@@ -29,7 +29,38 @@ puts Stars_and_movies
 Hollywood_movie_stars.map! do |star|
 	star.downcase
 end
-print Hollywood_movie_stars
+puts Hollywood_movie_stars
 
+# Release 2
+# Working with Arrays
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
+numbers.delete_if {|number| number < 5}
+p numbers
+
+numbers_2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+numbers_2.delete_if {|number| number > 5}
+p numbers_2
+
+numbers_3 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+numbers_3.reject! {|number| number == 4}
+p numbers_3
+
+numbers_4 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+numbers_4.select! {|number| number <=3 }
+
+p numbers_4
+
+# Working with Hashes
+numbers5 = { 1 => "one", 2 => "two", 3 => "three", 4 => "four", 5 => "five"}
+p numbers5
+# numbers5.delete_if {|number, name| number < 5}
+# p numbers5
+
+# numbers5.delete_if {|number, name| number < 4}
+# p numbers5
+
+numbers5.reject! {|number, name| number == 4}
+p numbers5
 
