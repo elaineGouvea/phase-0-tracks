@@ -63,3 +63,10 @@ puts festival[:band_3][:integrants][:concertina]
 puts festival[:band_1][:instruments]
 
 puts festival[:band_3][:genre]
+
+# Print all hash keys
+puts festival.keys
+
+# Print all hash values
+puts festival.values
+
