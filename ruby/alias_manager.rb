@@ -20,7 +20,7 @@ def change_char(char)
 	vowels = 'aeiou'
 	vowels_list = vowels.split('')
 	char = char.downcase
-	consonants = alphabet.split('') - vowels_list
+	consonants_list = alphabet.split('') - vowels_list
 
 	if !alphabet.index(char)
 		' '
@@ -28,7 +28,7 @@ def change_char(char)
 		position = vowels.index(char)
 		return vowels_list.rotate(1)[position]
 	else 
-		consonants.rotate(1)[consonants.index(char)]
+		consonants_list.rotate(1)[consonants_list.index(char)]
 	end
 end
 
@@ -41,23 +41,15 @@ def alias_generator(name, agents, input)
 		char_index += 1
 	end
 	if alias_name.include?(' ') then
-		# alias_name.split(' ')[0].capitalize + ' ' + alias_name.split(' ')[1].capitalize
-		# doesn't work for one-word strings!
-		alias_name.split(' ').map { |name| name.capitalize  }.join(' ')
+		alias_name.split(' ').map { |name| name  }.join(' ')
 	else
-		alias_name.split(' ')[0].capitalize
+		alias_name.split(' ')[0]
 	end
-	agents[input] = alias_name
+	agents[input] = alias_name.capitalize
 end
 
 
-# full_name = "Felicia Torres"
-# split_name = full_name.split(' ')
-# invert_name = split_name.reverse.join(' ')
-# p invert_name
-
 # Interface
-
 
 loop do 
 	puts "Welcome to the Alias Generator! Enter your full name and we'll return a cool fake one. Type 'quit' when done."
@@ -72,20 +64,18 @@ agents.each do |name, nickname|
   puts "#{name} is also known as #{nickname}"
 end
 
+
+# Tests: 
+
+# full_name = "Felicia Torres"
+# split_name = full_name.split(' ')
+# invert_name = split_name.reverse.join(' ')
+# p invert_name
+
 # puts #{agent[0]} is also known as #{agent[1]}
 
 
 
 
 
-
-
-#Tests:
-# puts "Should return a space if input is not a letter:"
-# p next_vowel('elaine gouvea') == " "
-
-# puts "Should return the next vowel if input contains vowels:"
-# p next_vowel("passeio")
-
-# p invert_name
 
