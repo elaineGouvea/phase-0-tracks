@@ -13,15 +13,15 @@
 # - Get the input as symbols to increment the hash;
 # - Convert the input to the appropriate data type;
 # - Update a key;
-# - Create a loop to give the opportunity for the user to change one input.
+# - Create a loop to give the opportunity for the user to change one input;
+# - 
 
-#There's a simpler solution, using just loop do + break on the interface.
 def change_info(field, form)
 	i = 0
 	unless field == "none"
 		puts "Write the correct #{field}"
 		input = gets.chomp
-		form[field] = input
+		form[field.to_sym] = input
 		i += 1
 	end
 end
@@ -34,36 +34,46 @@ end
 # 	end
 # 	colors_list.pop
 
-# 	form["color_scheme"] = colors_list 
+# 	form[:color_scheme] = colors_list 
 # end
 
 form = {}
 
 #USER INTERFACE
 puts "name:"
-form["name"] = gets.chomp
-p form["name"]
+form[:name] = gets.chomp
+p form[:name]
 
 puts "email:"
-form["email"] = gets.chomp
+form[:email] = gets.chomp
 
 puts "phone:"
-form["phone"] = gets.chomp.to_i
+form[:phone] = gets.chomp.to_i
 
 puts "age:"
-form["age"] = gets.chomp.to_i
+form[:age] = gets.chomp.to_i
 
 puts "number_of_children:"
-form["number_of_children"] = gets.chomp.to_i
+form[:number_of_children] = gets.chomp.to_i
 
 puts "decor_theme:"
-form["decor_theme"] = gets.chomp
+form[:decor_theme] = gets.chomp
 
-puts "preferences:"
-form["preferences"] = gets.chomp
+form[:preferences] = []
+loop do 
+	puts "Write down your decor preferences (or type 'done'):"
+	preference = gets.chomp
+	break if preference == 'done'
+	form[:preferences] << preference
+end
 
-puts "dislikes:"
-form["dislikes"] = gets.chomp
+form[:dislikes] = []
+loop do 
+	puts "And what about the decor things you dislike? (or type 'done')"
+	dislike = gets.chomp
+	break if dislike == 'done'
+	form[:dislikes] << dislike
+end
 
 puts "Write down the colors you would like to use in your decor. When finished, write 'done'"
 
@@ -73,7 +83,7 @@ until colors_list.include? "done"
 end
 colors_list.pop
 
-form["color_scheme"] = colors_list 
+form[:color_scheme] = colors_list 
 
 puts "Review info:", form
 
