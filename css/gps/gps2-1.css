@@ -1,3 +1,29 @@
-body {
+header {
   background-color: tomato;
+  margin: 1%;
+  border: 2px solid green;
+  background-image: url("https://pbs.twimg.com/profile_images/634740140003295234/bpnVhq8Z.jpg");
 }
+
+.column-1 {
+  background-color: blue;
+  display: inline-block;
+  width: 45%; 
+  padding: 2%;
+  vertical-align: top;
+}
+
+.column-2 {
+  background-color: green;
+  display: inline-block;
+  width: 45%;
+  padding: 2%;
+  vertical-align: top;
+}
+
+footer {
+  background-color: yellow;
+  font-family: "verdana";
+}
+
+
