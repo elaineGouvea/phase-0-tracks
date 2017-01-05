@@ -1,5 +1,4 @@
-#Helping a robot to ride an elevator - at the main floor of the building, going to the 6th floor:
-
+# Helping a robot to ride an elevator - at the main floor of the building, going to the 6th floor:
 - Walk up to face the elevator;
 - Press the 1st button (from top to bottom);
 - Wait until the door opens, then walk in it until reach a wall:
@@ -15,3 +14,25 @@
 - Wait up to hear the bell (the robot is gonna be there alone);
 - After the door opens, get out of the elevator! 
 
+# Puting ice on my knee injury:
+- Open the freezer;
+- Get the ice bag;
+- Sit on the bed;
+- Rotate the body to the left;
+- Extend the left leg on the mattress slowly (be careful not to hurt yourself);
+- Position a pillow under the knee;
+- If wearing something in contact with the injured knee, like knee braces or thick clothes:
+	- Remove it;
+- Put the ice bag on the inferior part of the left knee;
+- Start a 20 minutes timer on your phone (or ask Siri to do it for you);
+- After the timer is over, remove the ice bag from the knee;
+- If the knee is wet:
+	- get a towel (beside the bed);
+	- dry the leg.
+- If any clothes or knee braces were removed:
+	-put them back.
+- If there's someone at home:
+	- Ask them to put the ice bag back to the freezer;
+- Otherwise:
+	- do it yourself!
+- Get some rest!
