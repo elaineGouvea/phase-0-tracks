@@ -16,7 +16,7 @@ def survey_form
 	employee_name = gets.chomp
 
 # To compare the answers to see if the informed_age matches the informed_birth:
-	puts "How old are you?"
+	puts "What will be your age at the last day of this year?"
 	informed_age = gets.chomp.to_i #convert input to integer
 
 	puts "What year were you born?"
@@ -24,16 +24,16 @@ def survey_form
 	age = Date.today.year - informed_birth #get current year 
 
 	puts "Our company cafeteria serves garlic bread. Should we order some for you? (y/n)"
-	wants_garlic = gets.chomp
+	wants_garlic = gets.chomp.downcase
 
 	puts "Would you like to enroll in the company’s health insurance? (y/n)"
-	wants_health_insurance = gets.chomp
+	wants_health_insurance = gets.chomp.downcase
 
 	puts "Name any allergies, one at a time. You should type “done” when finished."
 	allergy = ""
 	is_vampire_detected = false
 	until allergy == "done"
-		allergy = gets.chomp
+		allergy = gets.chomp.downcase
 			if allergy == "sunshine"
 				puts "Probably a vampire." 
 				is_vampire_detected = true
@@ -62,23 +62,45 @@ def survey_form
 
 		#Vampire Detecting logic:
 
-		garlic_or_insurance = garlic || health_insurance
+		vampire_detection = nil #variable to be updated so that the result can be based on the latest condition matched.
+		vampire_level = ''
+		#simplifying the read:
+		garlic_or_insurance = garlic || health_insurance 
+		garlic_and_insurance = garlic && health_insurance
 
+
+		#Could not find how to evaluate the result based on the latest condition matched instead of the first! I tried to use 2 variables to update them as each condition is checked but it didn't work...
+		 
 		if is_age_correct && garlic_or_insurance
-			puts "Probably not a vampire."
+			vampire_detection = false
+			vampire_level = 0
 		elsif !is_age_correct && !garlic_or_insurance
-			puts "Probably a vampire."
-		elsif !is_age_correct && !garlic && !health_insurance
-			puts "Almost certainly a vampire."
+			vampire_detection = false
+			vampire_level = 1
+		elsif !is_age_correct && !garlic_and_insurance
+			vampire_detection = false
+			vampire_level = 2
 		elsif employee_name == "Drake Cula" || "Tu Fang"
-		puts "Definitely a vampire."
+			vampire_detection = true
 		else 
-			puts "Result inconclusive."
+			vampire_detection = false
+			vampire_level = 3
 		end
-	end	
 
-	puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
-
+		if vampire_detection == false 
+			if vampire_level == 0
+			puts "Probably not a vampire."
+			elsif vampire_level == 1
+				puts "Probably a vampire."
+			elsif vampire_level == 2
+				puts "Almost certainly a vampire."
+			else vampire_level == 3
+				puts "Result inconclusive."
+			end
+		else
+			puts "Definitely a vampire."
+		end
+	end
 end
 
 puts "How many employees will be processed?"
@@ -88,4 +110,5 @@ times = number_employees.to_i
 
 survey_session(times)
 
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
 
