@@ -1,0 +1,38 @@
+# Helping a robot to ride an elevator - at the main floor of the building, going to the 6th floor:
+- Walk up to face the elevator;
+- Press the 1st button (from top to bottom);
+- Wait until the door opens, then walk in it until reach a wall:
+	- Turn to the left perpendicularly to the wall;
+	- Walk up to reach a second wall;
+	- Turn to the left perpendicularly to the wall (again);
+	- Walk up to reach the 3rd wall, where the control pannel is;
+- On the control pannel, count the buttons from bottom to top:
+	- If the pannel has just one row of buttons and the ground floor is the first floor and first button from bottom to top: counting from 0-5, press button 5;
+	- If the pannel has just one row and the ground floor is the first floor, but the second button from bottom to top (the 1st is a garage): counting from 0-6, press button 6;
+	- If the pannel has more than one row of buttons, start counting from left to right and only when get the end of the row, move to the row above.
+	- If the robot can read, press the button where number 6 is indicated.
+- Wait up to hear the bell (the robot is gonna be there alone);
+- After the door opens, get out of the elevator! 
+
+# Puting ice on my knee injury:
+- Open the freezer;
+- Get the ice bag;
+- Sit on the bed;
+- Rotate the body to the left;
+- Extend the left leg on the mattress slowly (be careful not to hurt yourself);
+- Position a pillow under the knee;
+- If wearing something in contact with the injured knee, like knee braces or thick clothes:
+	- Remove it;
+- Put the ice bag on the inferior part of the left knee;
+- Start a 20 minutes timer on your phone (or ask Siri to do it for you);
+- After the timer is over, remove the ice bag from the knee;
+- If the knee is wet:
+	- get a towel (beside the bed);
+	- dry the leg.
+- If any clothes or knee braces were removed:
+	-put them back.
+- If there's someone at home:
+	- Ask them to put the ice bag back to the freezer;
+- Otherwise:
+	- do it yourself!
+- Get some rest!
