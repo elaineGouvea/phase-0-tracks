@@ -10,7 +10,10 @@
 => “InVeStIgAtIoN”
 
 "zom".insert(1, "o")
-
+"zom".insert(2, "o")
+"zom".insert(-2, "o")
+"zom".insert(-3, "o")
+"zom".gsub("o", "oo")
 => “zoom”
 
 "enhance".center(width, padstr=" ")
@@ -40,6 +43,7 @@
 
 "Elementary,    my   dear        Watson!".squeeze
 "Elementary,    my   dear        Watson!".squeeze!
+"Elementary,    my   dear        Watson!".gsub(/ +/, " ")
 => "Elementary, my dear Watson!"
 
 "z".byte[0]
