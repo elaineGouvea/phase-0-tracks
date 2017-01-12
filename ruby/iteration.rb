@@ -1,66 +1,37 @@
-def test_method
-	puts "Hello, there!"
-	yield("Elaine", "Vilde")
+def status
+	puts "Status message: "
+	yield
+	puts "Another status message."
 end
 
-test_method {|name1, name2| puts "Hi, #{name1} and #{name2}"}
+status { puts "This is an yield message"}
 
-Hollywood_movie_stars = ["Tom Cruise", "Brad Pitt", "Angelia Jolie", "Mel Gibson"]
+colors = ["blue", "yellow", "red"]
 
-Stars_and_movies = {"Tom Cruise" => "Jerry MacGuire", "Brad Pitt" => "Smith", "Angelina Jolie" => "Smith", "Mel Gibson" => "Hamlet"}
+food = {"banana" => 3.70, "apple" => 0.95, "pear" => 1.25}
 
-# Using .each
-puts Hollywood_movie_stars
 
-Hollywood_movie_stars.each do |star|
-	puts "#{star}"
+p colors #Print the array
+colors.each { |i| puts "The color is: #{i}"}
+p colors # Print  the array after .each
+
+
+p food # Print the hash
+food.each { |x, y| puts "The #{x} costs #{y}"}
+p food # Print the hash after .each
+
+p colors # Print the array
+colors.map! do |i| puts i 
+	i.capitalize
 end
 
-puts Hollywood_movie_stars
+p colors # Print the array after .map!
 
-puts Stars_and_movies
-Stars_and_movies.each do |star, movie|
-	puts "#{star} was in #{movie}"
+p food
+p new_food = {}
+
+new_food = food.map do |x, y| puts x
+		x.upcase
 end
-puts Stars_and_movies
-
-# Using .map!
-
-Hollywood_movie_stars.map! do |star|
-	star.downcase
-end
-puts Hollywood_movie_stars
-
-# Release 2
-# Working with Arrays
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-numbers.delete_if {|number| number < 5}
-p numbers
-
-numbers_2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-numbers_2.delete_if {|number| number > 5}
-p numbers_2
-
-numbers_3 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-numbers_3.reject! {|number| number == 4}
-p numbers_3
-
-numbers_4 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-numbers_4.select! {|number| number <=3 }
-
-p numbers_4
-
-# Working with Hashes
-numbers5 = { 1 => "one", 2 => "two", 3 => "three", 4 => "four", 5 => "five"}
-p numbers5
-# numbers5.delete_if {|number, name| number < 5}
-# p numbers5
-
-# numbers5.delete_if {|number, name| number < 4}
-# p numbers5
-
-numbers5.reject! {|number, name| number == 4}
-p numbers5
-
+p food
+p new_food
