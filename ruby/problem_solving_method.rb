@@ -1,55 +1,44 @@
-arr = [47, 7, 37, 27]
+# Release 0: Implement a Simple Search
 
 def search_array(arr, number)
 	i = 0
-	while i < arr.length 
-		if arr[i] == number 
-		puts i 
-		else puts nil 
-		end 
-	i += 1 
-	end 
+  while i < arr.length
+		if arr[i] == number
+    	return i
+    end
+	i += 1
+  end
+end
+
+# Release 1: Calculate Fibonacci Numbers
+
+# Solution 0
+def fibonacci(num) 
+	fib = [0,1]
+  (num - 2).times do 
+  	fib << fib[-2] + fib[-1]
+  end
+  fib[-1]
+end
+
+# Solution 1
+def fib(num)
+arr = [0,1]
+i = 0
+  while i < num - 2
+    arr << arr[-1] + arr[-2]
+    i += 1
+  end
+arr.last
+end
+
+# Driver Code:
+puts "Expect fibonacci(6) to be equal 5 evaluates to true:"
+p fibonacci(6) == 5
+
+if fib(100) == 218922995834555169026
+	puts "The 100th number in Fibonacci sequence is 218922995834555169026"	
 end 
 
-p search_array(arr, 27)
-p search_array(arr, 45)
-
-def fibo(value)
-array = [0,1]
-  for i in 0..value-3
-  sum = array[i] + array[i+1]
-  array << sum 
-end 
-array
-end 
-
-p fibo(6)
-p fibo(100)
-
-#SORTING METHOD:
-#1. Iterates through array
-#2. Checks to see which one is greater, move biggest to the left
-#3. Continue up to end of the array 
-
-
-def sorter(array)
-	l = array.length 
-	loop do 
-		swap = false
-
-		(l-1).times do |i|
-			if array[i] > array[i+1]
-				array[i], array[i+1] = array[i+1], array[i]
-				swap = true 
-			end 
-		end 
-		break if not swap 
-	end
-	array 
-end 
-
-hey =[1, 5, 2, 7]
-p sorter(hey)
-
-
+# Release 2: Sort an Array
 
