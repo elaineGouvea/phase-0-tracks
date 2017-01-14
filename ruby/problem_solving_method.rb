@@ -42,3 +42,37 @@ end
 
 # Release 2: Sort an Array
 
+# Pseudo Code - Bubble Sort
+# Loop through a block until it's sorted;
+# Create a boolean, set it to false;
+#  - Another loop (arr.length -1).times;
+# 	- If the the item of arr[i] is greater than arr[i+1]:
+# 		- Switch it;
+# 		- set the boolean to true.
+# 	- If it is false, break the loop.
+# 	- Arr.
+
+# This is how to swap two variables at once
+# b,a = a,b
+
+
+def bubbly(arr)
+  loop do
+    switch = false
+    (arr.length - 1).times do |i|
+    	if arr[i] > arr[i + 1]
+        arr[i + 1],arr[i] = arr[i],arr[i + 1]
+        switch = true
+      end
+    end
+    if switch == false
+      break
+    end
+  end
+  arr
+end
+
+p bubbly([24,65,87,14,45])
+
+#=> [14, 24, 45, 65, 87]
+
