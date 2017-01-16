@@ -41,11 +41,11 @@ def alias_generator(name, agents, input)
 		char_index += 1
 	end
 	if alias_name.include?(' ') then
-		alias_name.split(' ').map { |name| name  }.join(' ')
+		alias_name.split(' ').map(&:capitalize) #{ |name| name  }.join(' ')
 	else
 		alias_name.split(' ')[0]
 	end
-	agents[input] = alias_name.capitalize
+	agents[input] = alias_name
 end
 
 
@@ -60,22 +60,18 @@ loop do
 	puts alias_generator(invert_name, agents, input)
 end
 
-agents.each do |name, nickname|
-  puts "#{name} is also known as #{nickname}"
+agents.each do |real_name, nickname|
+  puts "#{real_name} is also known as #{nickname}"
 end
 
 
-# Tests: 
+# Driver Code: 
 
 # full_name = "Felicia Torres"
 # split_name = full_name.split(' ')
 # invert_name = split_name.reverse.join(' ')
 # p invert_name
 
-# puts #{agent[0]} is also known as #{agent[1]}
-
-
-
-
+# puts '#{agent[0]} is also known as #{agent[1]}'
 
 
