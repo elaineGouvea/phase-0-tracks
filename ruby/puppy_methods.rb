@@ -39,3 +39,36 @@ fido.roll_over
 fido.dog_years(8)
 fido.sit
 
+# Release 2
+
+class Kittens
+
+  def initialize
+    puts "creating kittens!"
+  end
+
+  def purr 
+    puts "purr, purr, purr"
+  end
+
+  def licks
+    puts 'licks'
+  end
+
+  def meows
+    puts 'meow.'
+  end
+
+end
+
+# DRIVER CODE
+
+kitten_array = 50.times.collect {Kittens.new}
+puts kitten_array
+
+kitten_array.each {|k| k.purr}
+
+kitten_array.each {|k| k.licks}
+
+kitten_array.each {|k| k.meows}
+
