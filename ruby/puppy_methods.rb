@@ -1,69 +1,74 @@
+# Release 0
+
 class Puppy
+
   def initialize
-		puts "Initializing new puppy instance..."
-	end
+  	puts "Initializing new puppy instance..."
+  end
 
   def fetch(toy)
     puts "I brought back the #{toy}!"
     toy
   end
 
-	def speak(bark_number)
-		i = 0
-		until i == bark_number
-			puts "Woof!"
-		i += 1
-		end
-	end  
+  def speak(number)
+  	(number).times do |i|
+  	puts "Woof!"
+  	end 
+  end
 
-	def roll_over
-		puts '*rolls over*'
-	end
+  def roll_over
+  	puts "*rolls over*"
+  end
 
-	def dog_years(human_years)
-		puts human_years * 7
-	end
+  def dog_years(human_age)
+  	puts human_age * 7 
+  end
 
-	def hand_shake
-		puts "*gives paw*"
-	end
+  def sit
+  	puts "*sitting*"
+  end
 end
 
-# fido = Puppy.new
+# DRIVER CODE
 
-# fido.fetch("ball")
+fido = Puppy.new
+fido.fetch("bone")
+fido.speak(6)
+fido.roll_over
+fido.dog_years(8)
+fido.sit
 
-# fido.speak(3)
+# Release 2
 
-# fido.roll_over
+class Kittens
 
-# fido.dog_years(6)
+  def initialize
+    puts "creating kittens!"
+  end
 
-# fido.hand_shake
+  def purr 
+    puts "purr, purr, purr"
+  end
 
-class Kitten
-	def initialize
-		puts "Initializing new Kitten instance..."
-	end
+  def licks
+    puts 'licks'
+  end
 
-	def cuddle
-		puts "*cuddles legs*"
-	end
+  def meows
+    puts 'meow.'
+  end
 
-	def cat_years(human_years)
-		puts human_years * 7
-	end
 end
 
-cat_house = []
+# DRIVER CODE
 
-i = 0
+kitten_array = 50.times.collect {Kittens.new}
+puts kitten_array
 
-until i == 50 
-	cat_house << Kitten.new
-	i += 1
-end
+kitten_array.each {|k| k.purr}
 
-cat_house.each {|kitten| kitten.cuddle}
+kitten_array.each {|k| k.licks}
 
+kitten_array.each {|k| k.meows}
 
