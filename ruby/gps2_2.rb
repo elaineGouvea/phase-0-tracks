@@ -11,11 +11,9 @@ def make_list(items)
   grocery_list = {}
   num = 1
   items_arry = items.split
-  items_arry.each { |i| grocery_list[i] = num}
+  items_arry.each { |i| grocery_list[i.to_sym] = num}
   grocery_list
 end
-
-grocery_list = make_list("carrots apples cereal pizza")
 
 # Method to add an item to a list
 # input: list, item_name, and optional quantity
@@ -25,11 +23,9 @@ grocery_list = make_list("carrots apples cereal pizza")
 # output: modified grocery list hash
 
 def add_item(list, item_name, quantity)
-  list[item_name] = quantity
+  list[item_name.to_sym] = quantity
   list
 end
-
-add_item(grocery_list, "banana", 8)
 
 # Method to remove an item from the list
 # input: list, item_name
@@ -38,11 +34,9 @@ add_item(grocery_list, "banana", 8)
 # output: modified grocery_list with less item(s) 
 
 def delete_item(list, item_name)
-  list.delete(item_name)
+  list.delete(item_name.to_sym)
   list
 end
-
-delete_item(grocery_list, "pizza")
 
 # Method to update the quantity of an item
 # input: list, item_name, quantity
@@ -51,11 +45,9 @@ delete_item(grocery_list, "pizza")
 # output: modified grocery_list with an updated quantity 
 
 def update_quantity(list, item_name, quantity)
-  list[item_name] = quantity
+  list[item_name.to_sym] = quantity
   list
 end
-
-update_quantity(grocery_list, "carrots", 5)
 
 # Method to print a list and make it look pretty
 # input: grocery_list, item_name, quantity 
@@ -65,25 +57,22 @@ update_quantity(grocery_list, "carrots", 5)
 # output: pretty hash printed
 
 def print_list(list)
+  puts "Grocery list:"
   list.each { |item, quantity| puts "- #{quantity} #{item}"}
+  puts "-----"
 end
-
-print_list(grocery_list)
 
 # Driver code
 # Create a new list:
 grocery_list = make_list("carrots apples cereal pizza")
 
-# add the following items to your list
+# Add the following items to your list
 add_item(grocery_list, "Lemonade", 2)
 add_item(grocery_list, "Tomatoes", 3)
 add_item(grocery_list, "Onions", 1)
 add_item(grocery_list, "Ice Cream", 4)
-
-puts "Should print the list:"
+# Print the list
 print_list(grocery_list)
-puts "____"
-
 
 # Remove the Lemonade from your list
 delete_item(grocery_list, "Lemonade")
@@ -92,3 +81,9 @@ update_quantity(grocery_list, "Ice Cream", 1)
 # Print the list
 print_list(grocery_list)
 
+# Release 1 tests:
+# grocery_list = make_list("carrots apples cereal pizza")
+# add_item(grocery_list, "banana", 8)
+# delete_item(grocery_list, "pizza")
+# update_quantity(grocery_list, "carrots", 5)
+# p print_list(grocery_list)
