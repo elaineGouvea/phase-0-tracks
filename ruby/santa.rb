@@ -2,19 +2,19 @@
 
 # BUSINESS LOGIC
 class	Santa
-	attr_reader :age, :ethnicity
-  attr_accessor :gender
+	attr_reader :ethnicity
+  attr_accessor :gender, :age
 
-	def initialize(gender, ethnicity)
+	def initialize(gender, ethnicity, age=0)
 		puts "Initializing Santa instance ..."
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-    @age = 0
+    @age = age
     @gender = gender
     @ethnicity = ethnicity
 	end
 
 	def speak
-		puts "Ho, ho, ho! Haaaappy holidays!"
+		puts "The #{@gender} #{@ethnicity} Santa says: Ho, ho, ho! Haaaappy holidays!"
 	end
 
 	def eat_milk_and_cookies(cookie)
@@ -34,24 +34,41 @@ end
 
 # DRIVER CODE
 
-# Release 2:
-puts "Should create an instance of Santa class"
-p santa = Santa.new("female","Latino")
-puts
-puts "Santa gender == 'female' && Santa ethnicity == 'Latino' should evaluate to true:"
-p santa.instance_variable_get(:@gender) == 'female' && 
-santa.instance_variable_get(:@ethnicity) == 'Latino'
-puts
-puts "Expect to age santa in 1 year:"
-santa.celebrate_birthday
-puts "Santa's age: #{santa.instance_variable_get(:@age)}"
-puts
-puts "Expect Vixen to be in the last place of reindeer ranking evaluates to true:"
-puts santa.get_mad_at("Vixen")[-1] == "Vixen"
-puts 
-puts "Expect to reassign gender to 'bigender' from outside the class def:"
-santa.gender=("bigender")
-puts "Santa changed eir gender to #{santa.instance_variable_get(:@gender)}"
+# Release 4:
+santas = []
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+example_cookies = ["snickerdoodle", "oreo", "cheetos", "pretzel", "butter cookie", "rice cookie", "chocolate chips cookie"]
+
+puts "Expect to create 50 instances of Santa, with random gender, ethnicity and age:"
+50.times do
+	gender = example_genders.sample
+	ethnicity = example_ethnicities.sample
+	rand_age = Random.new.rand(0..140)
+  new_santa = Santa.new(gender, ethnicity, rand_age)
+  puts new_santa.speak
+  puts "Santa's age: #{new_santa.instance_variable_get(:@age)}"
+  puts "#####"
+end
+
+# Releases 2 & 3:
+# puts "Should create an instance of Santa class"
+# p santa = Santa.new("female","Latino")
+# puts
+# puts "Santa gender == 'female' && Santa ethnicity == 'Latino' should evaluate to true:"
+# p santa.instance_variable_get(:@gender) == 'female' && 
+# santa.instance_variable_get(:@ethnicity) == 'Latino'
+# puts
+# puts "Expect to age santa in 1 year:"
+# santa.celebrate_birthday
+# puts "Santa's age: #{santa.instance_variable_get(:@age)}"
+# puts
+# puts "Expect Vixen to be in the last place of reindeer ranking evaluates to true:"
+# puts santa.get_mad_at("Vixen")[-1] == "Vixen"
+# puts 
+# puts "Expect to reassign gender to 'bigender' from outside the class def:"
+# santa.gender=("bigender")
+# puts "Santa changed eir gender to #{santa.instance_variable_get(:@gender)}"
 
 
 # Release 1:
