@@ -1,13 +1,16 @@
-class	Santa
-	attr_reader :age, :ethnicity
-	attr_accessor :gender
+# Release 0: Define Santa class and add 3 instance methods
 
-	def initialize(gender,ethnicity)
+# BUSINESS LOGIC
+class	Santa
+	attr_reader :ethnicity
+  attr_accessor :gender, :age
+
+	def initialize(gender, ethnicity, age=0)
 		puts "Initializing Santa instance ..."
-		@gender = gender
-		@ethnicity = ethnicity
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-		@age = 0
+    @age = age
+    @gender = gender
+    @ethnicity = ethnicity
 	end
 
 	def speak
@@ -23,41 +26,81 @@ class	Santa
 	end
 
 	def get_mad_at(reindeer_name)
-		reindeer_position = @reindeer_ranking.index(reindeer_name)
-		bad_reindeer = @reindeer_ranking.slice!(reindeer_position)
-		return @reindeer_ranking << bad_reindeer
+		i = @reindeer_ranking.index(reindeer_name)
+		brat_reindeer = @reindeer_ranking.slice!(i)
+		@reindeer_ranking << brat_reindeer
 	end
 end
 
-# Driver code
-santa = Santa.new("female","Latina")
-puts "Should return reindeer_position (index)"
-# puts santa.get_mad_at("Dancer") == 2
-# puts santa.get_mad_at("Dancer") == "Dancer"
-puts santa.get_mad_at("Dancer")[-1] == "Dancer"
+# DRIVER CODE
 
-puts "should age santa in one year"
-puts santa.celebrate_birthday
-
-puts "Should allow change gender outside the method"
-santa.gender = "bigender"
-puts santa.gender == "bigender"
-
-puts "Should allow to return age outside the method"
-puts santa.age == 1
-
-puts "Should allow to return ethnicity outside the method"
-puts santa.ethnicity == "Latina"
-
-#Release 4 - create Lots of Santas
-
+# Release 4:
+santas = []
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
-50.times do 
-  new_santa = Santa.new(example_genders.sample, example_ethnicities.sample)
+example_cookies = ["snickerdoodle", "oreo", "cheetos", "pretzel", "butter cookie", "rice cookie", "chocolate chips cookie"]
+
+puts "Expect to create 50 instances of Santa, with random gender, ethnicity and age:"
+50.times do
+	gender = example_genders.sample
+	ethnicity = example_ethnicities.sample
+	rand_age = Random.new.rand(0..140)
+  new_santa = Santa.new(gender, ethnicity, rand_age)
   puts new_santa.speak
+  puts "Santa's age: #{new_santa.instance_variable_get(:@age)}"
+  puts "#####"
 end
 
+# Releases 2 & 3:
+# puts "Should create an instance of Santa class"
+# p santa = Santa.new("female","Latino")
+# puts
+# puts "Santa gender == 'female' && Santa ethnicity == 'Latino' should evaluate to true:"
+# p santa.instance_variable_get(:@gender) == 'female' && 
+# santa.instance_variable_get(:@ethnicity) == 'Latino'
+# puts
+# puts "Expect to age santa in 1 year:"
+# santa.celebrate_birthday
+# puts "Santa's age: #{santa.instance_variable_get(:@age)}"
+# puts
+# puts "Expect Vixen to be in the last place of reindeer ranking evaluates to true:"
+# puts santa.get_mad_at("Vixen")[-1] == "Vixen"
+# puts 
+# puts "Expect to reassign gender to 'bigender' from outside the class def:"
+# santa.gender=("bigender")
+# puts "Santa changed eir gender to #{santa.instance_variable_get(:@gender)}"
 
+
+# Release 1:
+# santas = []
+# example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+# example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+# example_cookies = ["snickerdoodle", "oreo", "cheetos", "pretzel", "butter cookie", "rice cookie", "chocolate chips cookie"]
+# puts
+
+# Iterate through example_genders arry to create a new Santa instance of each gender & ethnicity:
+# example_genders.length.times do |i|
+#   puts "Creating a #{example_genders[i]} #{example_ethnicities[i]} santa..."
+#   santas << Santa.new(example_genders[i], example_ethnicities[i])
+#   puts "There are now #{santas.length} Santa instances in the array"
+#   puts "----"
+# end
+# puts
+
+# puts "Should return each Santa instance in the array executing its methods"
+# santas.each_with_index do |santa, i|
+#   santa.speak
+#   santa.eat_milk_and_cookies(example_cookies[i])
+#   puts "----"
+# end
+
+# # Release 0:
+# puts "Should initialize a Santa instance:"
+# santa = Santa.new
+# puts
+# puts "Call speak method should return a greeting:"
 # santa.speak
-# santa.eat_milk_and_cookies("oreo")
+# puts
+# puts "Call eat_milk_and_cookies method passing 'snickerdoodle' as a parameter should return a greeting using the argument:"
+# santa.eat_milk_and_cookies("snickerdoodle")
+
