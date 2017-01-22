@@ -2,6 +2,8 @@
 
 # BUSINESS LOGIC
 class	Santa
+	attr_reader :age, :ethnicity
+  attr_accessor :gender
 
 	def initialize(gender, ethnicity)
 		puts "Initializing Santa instance ..."
@@ -27,10 +29,6 @@ class	Santa
 		i = @reindeer_ranking.index(reindeer_name)
 		brat_reindeer = @reindeer_ranking.slice!(i)
 		@reindeer_ranking << brat_reindeer
-	end
-
-	def gender=(new_gender)
-		@gender = new_gender
 	end
 end
 
