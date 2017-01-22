@@ -7,9 +7,9 @@
   # print the list to the console with print list method
 # output: grocery_list hash
 
-def make_list(items)
+def make_list(items, num=1)
   grocery_list = {}
-  num = 1
+  # num = 1
   items_arry = items.split
   items_arry.each { |i| grocery_list[i.to_sym] = num}
   grocery_list
@@ -87,3 +87,28 @@ print_list(grocery_list)
 # delete_item(grocery_list, "pizza")
 # update_quantity(grocery_list, "carrots", 5)
 # p print_list(grocery_list)
+# ===================
+# Reflection section:
+
+# What did you learn about pseudocode from working on this challenge?
+# It seems that we're spending more time when pseudocoding first, but it saves us time when we think about the approach to solve a problem before starting coding. Specially if the pseudocode is detailed.
+
+# What are the tradeoffs of using arrays and hashes for this challenge?
+# Using hash for this challenge seemed the most coherent data type option because we wanted to store a pair of information together in our collection. We would have opted to use an array if the order of the elements in our collection mattered. An array was a great option to separate the initial string with lots of items in it. 
+
+# What does a method return?
+# What evaluates in its last executed line.
+
+# What kind of things can you pass into methods as arguments?
+# strings, arrays, hashes, blocks... To pass a method as an argument, we should convert it into a block (just found this info). There are 2 categories of arguments: required and optional. We can even pass a different value for an argument with default value. 
+
+# How can you pass information between methods?
+# Using parameters when you define your method and passing the info as arguments when you call your method.
+
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+# How to add, edit and delete items in hashes (I had already forgotten)
+# How to set a default value to an argument (passing the value on method's parater)
+# Use block to iterate through each element of an array and a hash
+# Iterate through a hash to print it in a decent way
+# My peer introduced me to .to_sym method
+# I still need to practice more dry code, what to look while refactor, etc.
