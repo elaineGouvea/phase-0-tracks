@@ -65,7 +65,30 @@ update_quantity(grocery_list, "carrots", 5)
 # output: pretty hash printed
 
 def print_list(list)
-  list.each { |item, quantity| puts "I need #{quantity} #{item}"}
+  list.each { |item, quantity| puts "- #{quantity} #{item}"}
 end
 
-p print_list(grocery_list)
+print_list(grocery_list)
+
+# Driver code
+# Create a new list:
+grocery_list = make_list("carrots apples cereal pizza")
+
+# add the following items to your list
+add_item(grocery_list, "Lemonade", 2)
+add_item(grocery_list, "Tomatoes", 3)
+add_item(grocery_list, "Onions", 1)
+add_item(grocery_list, "Ice Cream", 4)
+
+puts "Should print the list:"
+print_list(grocery_list)
+puts "____"
+
+
+# Remove the Lemonade from your list
+delete_item(grocery_list, "Lemonade")
+# Update the Ice Cream quantity to 1
+update_quantity(grocery_list, "Ice Cream", 1)
+# Print the list
+print_list(grocery_list)
+
