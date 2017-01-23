@@ -1,49 +1,17 @@
-# Release 3
-module Shout
-	def yell_angrily(onomatopoeia)
-		puts onomatopoeia + "!!!"
+module	Shout
+	def self.yell_angrily(words)
+		words.upcase + "!!!" + " :("	
 	end
 
-	def yell_happily(onomatopoeia)
-		p onomatopoeia + "!!!" + " :)"
+	def self.yell_happily(words)
+		words + "!!!" + " :)"
 	end
 end
 
-class Baby
-	include Shout
-end
+# DRIVER CODE
+# Release 1:
+puts "Expect to upcase the arguments and add '!!! :(' in the end:"
+p Shout.yell_angrily("I still don't get the self keyword")
 
-class Monkey
-	include Shout
-end
-
-# Driver code
-baby = Baby.new
-monkey = Monkey.new
-
-baby.yell_angrily("Waaaaaah")
-baby.yell_happily("Waaaaaah")
-monkey.yell_happily("oo-ooh aa-aah")
-monkey.yell_angrily("AA-aaaa-AaaHHHhh")
-
-# Release 1
-# module Shout
-#   def self.yell_angrily(words)
-#     p words + "!!!" + " :("
-#   end
-
-#   def self.hello
-#   	puts 'hi'
-#   end
-
-# 	def self.yell_happily(phrase)
-# 		p phrase + "!!!" + " :)"
-# 	end
-# end
-
-# # Driver code:
-#  # print out the modules 
-#  Shout.hello
-#  Shout.yell_angrily("Why time goes by so fast???")
-#  Shout.yell_happily("I made it!")
-
+puts "Expect to add '!!! :)' after the argument:"
+p Shout.yell_happily("Modules are sweet")
