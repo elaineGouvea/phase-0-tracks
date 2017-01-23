@@ -12,30 +12,35 @@
 # - Prompt: "Who's player 2?"
 # - player_2 = gets.chomp
 # - Prompt player 1 to input a word
-# 	- Input: string
-# 	- Code: Split the string into characters. string.split("")
-# 	- Output: array of characters (secret_word_chars)
-# - Length of the word is displayed to player 2 
+	# - Input: string
+	# - Code: Split the string into characters. string.split("")
+	# - Output: array of characters (secret_word_chars)
+# - Display dashes according to the length of the word to player 2 
 # - Create a loop to prompt player 2 to guess a letter until game is_over
-# 	- Input: string (char)
-# 	- Code: Check if game is_over. If false, verify if the input was already entered. If not, increase the guess_count in 1. Verify if the guess is correct. If yes, display the letter in its correct position in the word.
-# 	- Output: correct_guess displayed in word
+	# - Input: string (char)
+	# - Code: Check if game is_over. If false, verify if input is new (not already entered): 
+		# - If yes, verify if the guess is correct:
+			# - If yes, display the letter in its correct position in the word; 
+			# - If not, increase the guess_count in 1.
+	# - Output: correct_guess displayed in word || guess_count +1
 # - Game is_over if:
-# 	- guess_count is greater than word length, 
-# 		- Output: message "Player 2 lost & player 1 won". Exit program.
-# 	- correct_guess is equal to word_length
-# 		- Output: tell player 2 won & player 1 lost. Exit program.
+	# - guess_count is greater than word length, 
+		# - Output: message "Player 2 lost & player 1 won". Exit program.
+	# - correct_guess is equal to word_length
+		# - Output: tell player 2 won & player 1 lost. Exit program.
+
 
 # Business Logic
 class HangmanGame
-	attr_reader :is_over, :win, :guess_is_valid
-	attr_accessor :secret_word_chars, :guess_count, :chars
+	attr_reader 
+	attr_accessor 
 
-	def initialize
-		@secret_word_chars = []
+	def initialize(secret_word, player_1, player_2)
+		@player_1 = player_1
+		@player_2 = player_2
+		@secret_word_chars = secret_word.split("")
 		@guess_count = 0
     @is_over = false
-    @win = false
     @chars = ""
     @guesses = []
 	end
