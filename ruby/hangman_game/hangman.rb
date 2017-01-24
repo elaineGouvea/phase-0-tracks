@@ -7,16 +7,15 @@
 # The user should get a congratulatory message if they win, and a taunting message if they lose.
 
 # Pseudocode
-# - Prompt: "Who's player 1?"
-# - player_1 = gets.chomp
-# - Prompt: "Who's player 2?"
-# - player_2 = gets.chomp
-# - Prompt player 1 to input a word
-	# - Input: string
+# - Define players 1 & 2:
+	# - Input: Arguments passed into initializaton
+	# - Output: player1 & player2 strings
+# - Player 1 input a secret_word
+	# - Input: string passed into initialization
 	# - Code: Split the string into characters. string.split("")
 	# - Output: array of characters (secret_word_chars)
 # - Display dashes according to the length of the word to player 2 
-# - Create a loop to prompt player 2 to guess a letter until game is_over
+# - Create a loop so that player 2 can guess a letter until game is_over
 	# - Input: string (char)
 	# - Code: Check if game is_over. If false, verify if input is new (not already entered): 
 		# - If yes, verify if the guess is correct:
@@ -25,72 +24,8 @@
 	# - Output: correct_guess displayed in word || guess_count +1
 # - Game is_over if:
 	# - guess_count is greater than word length, 
-		# - Output: message "Player 2 lost & player 1 won". Exit program.
+		# - Output: message "Player 2 lose & player 1 win". Exit program.
 	# - correct_guess is equal to word_length
 		# - Output: tell player 2 won & player 1 lost. Exit program.
 
-
-# Business Logic
-class HangmanGame
-	attr_reader 
-	attr_accessor 
-
-	def initialize(secret_word, player_1, player_2)
-		@player_1 = player_1
-		@player_2 = player_2
-		@secret_word_chars = secret_word.split("")
-		@guess_count = 0
-    @is_over = false
-    @chars = ""
-    @guesses = []
-	end
-
-	def check_guess
-		# guess_is_valid = false
-		# if @is_over == false && !guesses.include? @char
-		# 	@guesses << @char
-		# 	@guess_is_valid = true
-		# end
-		# puts @guesses
-	end
-
-	def is_over
-		
-	end
-end
-
-# Interface
-game = HangmanGame.new
-
-puts "Who's player 1?"
-player_1 = gets.chomp
-puts "Who's player 2?"
-player_2 = gets.chomp
-
-puts "#{player_1}, what's the secret word?"
-secret_word = gets.chomp
-game.secret_word_chars = secret_word.split("")
-
-until game.is_over
-	puts "#{player_2}, guess a letter"
-	chars = gets.chomp
-	puts chars
-	# game.char = char
-	# game.check_guess
-	game.guess_count += 1
-end
-
-
-
-# Driver Code
-puts "Should return true to player_1 == string"
-p player_1.instance_of?(String) == true
-puts "Should return true to player_2 == string"
-p player_2.instance_of?(String) == true
-puts "Should return true to secret_word_chars == array"
-p secret_word_chars.instance_of?(Array) == true
-puts "Should return secret_word_chars array"
-p secret_word_chars
-puts "Should return true if guess == string"
-p char.instance_of?(String) == true
 
