@@ -10,6 +10,7 @@ require_relative 'state_data'
 
 class VirusPredictor
   # Initializes the parameters passed when we call .new to create a new instance of the VirusProtector class: values for state, population & density from inputs
+
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
@@ -61,7 +62,7 @@ class VirusPredictor
     when @population_density >= 50
       speed = 2
     else
-      speed = 2.5
+      speed += 2.5
     end
     speed
   end
@@ -87,6 +88,12 @@ end
 alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
 alabama.virus_effects
 
+=======
+
+alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
+alabama.virus_effects
+
+>>>>>>> 27806cdbde96e7084db84768a2219855e77f0f4b
 jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
 jersey.virus_effects
 
@@ -115,3 +122,4 @@ alaska.virus_effects
   # How to iterate through a hash;
   # Understand how nested data structures work (how to access them, to iterate through them, etc.);
   # Refactor to DRY my code.
+
