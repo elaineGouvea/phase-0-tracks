@@ -9,12 +9,13 @@
 require_relative 'state_data'
 
 class VirusPredictor
-  # creates a new instance of the VirusProtector class with values for state, population & density from inputs
+  # Initializes the parameters passed when we call .new to create a new instance of the VirusProtector class: values for state, population & density from inputs
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
+  
   # calls the 3 private methods to:
   # calculate the number of deaths
   # calculate the speed of spread
@@ -41,10 +42,9 @@ class VirusPredictor
     else
       factor = 0.05
     end
-
     (@population * factor).floor
-
   end
+  
   # calculates the speed of spread based on population density
   # picks a speed based on the density
   def speed_of_spread #in months
@@ -63,10 +63,9 @@ class VirusPredictor
     else
       speed = 2.5
     end
-
     speed
-
   end
+  
   # arranges the state, number of deaths and speed of spread into a sentence and prints
   # speed of spread and number of deaths is input not calculated in line
   def print_effects(number_of_deaths, speed)
@@ -101,3 +100,18 @@ alaska.virus_effects
 
 #=======================================================================
 # Reflection Section
+
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+  # The first hash syntax uses the Hash rocket notation: {"key" => "value"} with the key as a string. The second one uses the syntactic sugar to the symbol notation: {key: "value"}. Using symbols is better in therms of memory and performance. This second notation is easier to read (dry), but it may not work with some older versions than Ruby 1.9. Also, it is not valid if your key is not a symbol. In case you need a key that is not a symbol, you should go with the first syntax option.  
+# What does require_relative do? How is it different from require?
+  # It’s best practice to write programs in different files, break the code by logical grouping. Require-relative is a way to include other files in Ruby. The difference between require and require_relative is that require method allows us to include files from anywhere while require_relative just gets files that are located relatively to our file - at the same directory.
+# What are some ways to iterate through a hash?
+  # each, map, select..
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+  # First, that the code was passing some instance variables as method parameters. Instance variables can be used thoughout the methods inside the same class, because they belong to the class itself. 
+  # Another thing that call our attention was the expressions to calculate predicted_deaths could be written once and used in all conditionals. 
+  # Third, case statements seemed to be more dry than if/else statements to use in speed_of_spread method.
+# What concept did you most solidify in this challenge?
+  # How to iterate through a hash;
+  # Understand how nested data structures work (how to access them, to iterate through them, etc.);
+  # Refactor to DRY my code.
