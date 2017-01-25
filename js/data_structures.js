@@ -1,55 +1,72 @@
-var colors = [ "red", "green", "yeallow", "blue"]
+// Release 0
+// Create arrays of colors and names:
+var colors = ["blue", "red", "yellow", "green"];
+var names = ["Ed", "Murphy", "Thunder", "Flash"];
+// Add an item to 'colors' array
+colors.push("purple");
+console.log(colors); 
+// Add an item to 'names' array
+names.push("Henry");
+console.log(names);
 
-var names =["Ace", "Ben", "California", "Dancer"]
+// Release 1
+var horses = {}; //Create an object
+var length = names.length;
+// Loop through the arrays to create an object:
+// keys: 'colors' elements values: 'names' elements
+for (var i = 0;  i < length; i++) { 
+	horses[names[i]] = colors[i]
+	}
+console.log(horses);
 
-colors.push("purple")
-names.push("Ed")
-
-var horses = {}
-for (var i = 0; i < names.length; i++) {
-	horses['name'] =  names[i];
-	horses['color'] = colors[i];
-
-
-	console.log("The horse's name is " + horses['name'] + ".");
-	console.log("The horse's color is " + horses.color + ".");
-	console.log("_______________________________");
+// Release 2
+// Create Object example:
+var cars = {
+	brand: 'Jeep', 
+	year: 2013, 
+	model: 'grand cherokee', 
+	is_running: false,
+	use: function(is_running){
+		if (cars.is_running == true) {
+			console.log("You can drive!")
+		}
+		else {
+			console.log("This car is broken!")		
+		}
+	}
 }
 
-function car(year, color, brand){
-	this.year = year;
-	this.color = color;
-	this.brand = brand;
-
-	this.accelerate = function() {console.log("Vrooom! Vrooom!")};
-	this.honk = function() {console.log("Beep! Beep!")};
+console.log(cars);
+cars.use();
+console.log("");
+// Add a constructor function to create a car
+function Car(brand, year, model, is_running) {
+this.brand = brand;
+this.year = year;
+this.model = model;
+this.is_running = is_running;
+this.use = function(is_running) {
+  if (this.is_running == true) {
+    console.log("You can drive!")
+    } else {
+    console.log("This car is broken!")        
+    }
+  }
 }
-
-var oldCar = new car (1950, "red", "Ford Mustang");
-var smallCar = new car (2012, "light green", "Fiat 500");
-
-console.log("This " + oldCar.brand + " car is from " + oldCar.year);
-oldCar.accelerate();
-oldCar.honk();
-
-console.log("This " + smallCar.color + " " + smallCar.brand + "car is from " + smallCar.year);
-smallCar.accelerate();
-smallCar.honk();
+// Create new cars using the constructor function:
+var car = new Car('Mini', 2015, 'Mini cooper', true)
+console.log(car);
+console.log("");
+car.use();
+console.log("");
+var new_car = new Car('Fiat', 2004, '500', false)
+console.log(new_car);
+console.log("");
+new_car.use();
 
 // Release 3
-
-console.log("__________");
-
-for (var property in oldCar) {
-   if (oldCar.hasOwnProperty(property)) {
-       console.log("The old car's " + property + " is " + oldCar[property]);        
-   }    
-}
-
-console.log("__________");
-
-for (var property in smallCar) {
-   if (smallCar.hasOwnProperty(property)) {
-       console.log("The small car's " + property + " is " + smallCar[property]);
-   }
-}
+// for (var property in car) {
+//    if (car.hasOwnProperty(property)) {
+//        console.log("The car's " + property + " is " + car[property]);
+//    }
+// }
