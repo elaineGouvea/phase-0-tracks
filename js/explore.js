@@ -1,23 +1,23 @@
-// Pseudocode - Reverse a string Algorithm
-// - Create a function that takes a string as a parameter
-// - Create an empty array
-// - For each character of the string, iterate through the string length to change the index to a negative one, starting from 0 that becomes -1, 1 that becomes -2, etc
-// - Put the reversed string into the new array
-// - Join the array into a string again and returns its value
-
-function stringReverse(str){
-	var charList = [];
-	// console.log( str.split('') );
-	for (var char = str.length -1, invertChar = 0; char >= 0 ; char--, invertChar++)
-		charList[invertChar] = str[char];
-	return charList.join('');
+// Reverse a string
+// Pseudocode:
+// Function that takes a string as a paremter:
+function reverse(str){
+	// Creates a new var to store function result;
+	var strReversed = '';
+	// For each char of the string, starting from an index equals string length, until the index is greater than or equals 0:
+	for (var i = str.length - 1; i >= 0; i--){
+		// adds the last char of str (argument) into strReversed
+		strReversed += str[i];
+	}
+	return strReversed;
 }
+	
+// Driver code to run the function:
+var str = 'hello'
+var newStr = reverse(str)
+console.log(newStr)
 
-// Driver code
-newString = stringReverse('hello');
-console.log(newString);
-
-// Print the variable if some condition is true:
-if (typeof newString === 'string') {
-	console.log(newString + " is the original string reversed!");
+// Prints the variable if certain condition is true;
+if (typeof newStr === 'string') {
+	console.log(newStr + ' is ' + str + ' reversed!');
 }
