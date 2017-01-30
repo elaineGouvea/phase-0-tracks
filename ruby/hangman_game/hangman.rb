@@ -1,91 +1,108 @@
 # Hangman Game
-# Specs:
-# One user can enter a word, and another user attempts to guess the word.
-# Guesses are limited, and the number of guesses available is related to the length of the word.
-# Repeated guesses do not count against the user.
-# The guessing player receives continual feedback on the current state of the word. So if the secret word is "unicorn", the user will start out seeing something like "_ _ _ _ _ _ _", which would become "_ _ _ c _ _ _" after the user enters a guess of "c".
-# The user should get a congratulatory message if they win, and a taunting message if they lose.
 
-# Pseudocode
-# - Prompt: "Who's player 1?"
-# - player_1 = gets.chomp
-# - Prompt: "Who's player 2?"
-# - player_2 = gets.chomp
-# - Prompt player 1 to input a word
-# 	- Input: string
-# 	- Code: Split the string into characters. string.split("")
-# 	- Output: array of characters (secret_word_chars)
-# - Length of the word is displayed to player 2 
-# - Create a loop to prompt player 2 to guess a letter until game is_over
-# 	- Input: string (char)
-# 	- Code: Check if game is_over. If false, verify if the input was already entered. If not, increase the guess_count in 1. Verify if the guess is correct. If yes, display the letter in its correct position in the word.
-# 	- Output: correct_guess displayed in word
-# - Game is_over if:
-# 	- guess_count is greater than word length, 
-# 		- Output: message "Player 2 lost & player 1 won". Exit program.
-# 	- correct_guess is equal to word_length
-# 		- Output: tell player 2 won & player 1 lost. Exit program.
+class Hangman
 
-# Business Logic
-class HangmanGame
-	attr_reader :is_over, :win, :guess_is_valid
-	attr_accessor :secret_word_chars, :guess_count, :chars
-
-	def initialize
-		@secret_word_chars = []
-		@guess_count = 0
+	attr_reader :player1, :player2, :secret_word, :secret_word_arr, :dashes_arr, :word_length, :guesses, :attempts
+  attr_writer :guess 
+	# Pseudocode
+	# Define players 1 & 2:
+		# Input: Arguments passed into initializaton
+		# Output: player1 & player2 strings
+	# Player 1 input a secret_word
+		# Input: string passed into initialization
+	def initialize(player1, player2, secret_word)
+    @player1 = player1
+    @player2 = player2
+    @secret_word = secret_word
+		# Code: Split the string into characters
+		# Output: array of characters (secret_word_arr) 
+    @secret_word_arr = secret_word.chars
+  	@word_length = @secret_word_arr.length
+  	@guess_count = 0
     @is_over = false
-    @win = false
-    @chars = ""
+    # @guess = nil
     @guesses = []
 	end
+	# Displays dashes according to the length of the secret_word for player 2 to guess the letters:
+	def display_chars
+		@dashes_arr = [] 
+		@word_length.times { @dashes_arr << "_" }
+		@display_chars = @dashes_arr.join(" ")
+	end
 
-	def check_guess
-		# guess_is_valid = false
-		# if @is_over == false && !guesses.include? @char
-		# 	@guesses << @char
-		# 	@guess_is_valid = true
-		# end
-		# puts @guesses
+	# Verifies if the guess is correct:
+	def check_guess(guess)
+		if @guesses.include?(guess)
+			puts 'This is a repeated guess. Try another letter!'	
+		else
+			@guesses << guess
+			if @secret_word_arr.include?(guess)
+				# logic to show the guess inside the @dashes_arr
+				@word_length.times do |i|
+					if @secret_word_arr[i] == guess
+						@dashes_arr.delete_at(i)
+						@dashes_arr.insert(i, guess)
+					end
+				end
+			else
+				@guess_count += 1
+				attempts = @word_length - @guess_count
+				puts "Incorrect guess. You have #{attempts.to_s} attempts left. Try again!"
+			end
+		end
+		@display_chars
 	end
 
 	def is_over
-		
+		if @dashes_arr == @secret_word_arr
+			is_over = true
+			has_winner = true
+			puts 'Wow! #{player2} guessed the word and win!!!!'
+		elsif @guess_count == @word_length
+			is_over = true
+			has_winner = false
+			puts '#{player2}, not this time... #{player1} win! Game over!'
+		end
 	end
+
+# - Create a loop so that player 2 can guess a letter until game is_over
+	# - Input: string (char)
+	# - Code: Check if game is_over. If false, verify if input is new (not already entered): 
+		# - If yes, 
+			# - If yes, display the letter in its correct position in the word; 
+			# - If not, increase the guess_count in 1.
+		# - If not, display an alert for user to enter a valid guess.
+	# - Output: correct_guess displayed in word || guess_count +1
+# - Game is_over if:
+	# - guess_count is greater than word length, 
+		# - Output: message "Player 2 lose & player 1 win". Exit program.
+	# - correct_guess is equal to word_length
+		# - Output: tell player 2 won & player 1 lost. Exit program.
 end
 
 # Interface
-game = HangmanGame.new
+puts "Let's play Hangman!"
+puts "Player 1, enter your name:"
+p player1 = gets.chomp
+puts "Player 2, enter your name:"
+p player2 = gets.chomp
+puts "#{player1}, what's the secret word?"
+p secret_word = gets.chomp
 
-puts "Who's player 1?"
-player_1 = gets.chomp
-puts "Who's player 2?"
-player_2 = gets.chomp
+# DRIVER CODE
+game = Hangman.new(player1, player2, secret_word)
 
-puts "#{player_1}, what's the secret word?"
-secret_word = gets.chomp
-game.secret_word_chars = secret_word.split("")
+puts "#{player2}, you have #{secret_word.length.to_s} attempts to chose a wrong letter. Guess a letter:"
+puts game.display_chars
 
 until game.is_over
-	puts "#{player_2}, guess a letter"
-	chars = gets.chomp
-	puts chars
-	# game.char = char
-	# game.check_guess
-	game.guess_count += 1
+    puts "#{player2}, guess a letter"
+    guess = gets.chomp
+    game.check_guess(guess)
+    # p @guesses
+    # puts game.
+
+    # game.char = char
+    # game.guess_count += 1
 end
-
-
-
-# Driver Code
-puts "Should return true to player_1 == string"
-p player_1.instance_of?(String) == true
-puts "Should return true to player_2 == string"
-p player_2.instance_of?(String) == true
-puts "Should return true to secret_word_chars == array"
-p secret_word_chars.instance_of?(Array) == true
-puts "Should return secret_word_chars array"
-p secret_word_chars
-puts "Should return true if guess == string"
-p char.instance_of?(String) == true
 
